@@ -1,0 +1,20 @@
+{
+  "user": [
+    {
+      "nome": "Claudio Junior",
+      "email": "claudiodsaesjunior@gmail.com",
+      "senha": "12345",
+      "telefones": [
+        {
+          "numero": "11984156268",
+          "DDD": "11"
+        },
+        {
+          "numero": "11963996238",
+          "DDD": "13"
+        }
+      ],
+      "id": "93785bcc-2570-4a4a-9d86-08fa618afbdc"
+    }
+  ]
+}

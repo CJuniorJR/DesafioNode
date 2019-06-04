@@ -1,0 +1,28 @@
+{
+  "name": "DesafioNode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "lowdb": "^1.0.0",
+    "uuid": "^3.3.2",
+    "hapi": "^18.1.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.10.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjuniorjr/DesafioNode.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjuniorjr/DesafioNode/issues"
+  },
+  "homepage": "https://github.com/cjuniorjr/DesafioNode#readme"
+}
