@@ -1,10 +1,12 @@
 const db = require('../infraestructure/database');
 
 module.exports = {
-    create: async (u) => {
-        return await db.create('user', u);
+    create: (u) => {
+        db.create('user', u);
+        
+        return true;
     },
-    findByEmail: async (email) => {
-        return await db.findByEmail('user', email);
+    findByEmail: (email) => {
+        return db.findByEmail('user', email);
     }
 }
