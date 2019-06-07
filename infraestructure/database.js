@@ -18,7 +18,7 @@ module.exports = {
         let entity = Object.assign(body, defaults);
 
         db.get(obj).push(entity).write();
-        entity.senha = undefined;
+        
         return entity;
     },
     find: (obj, criteria) => {

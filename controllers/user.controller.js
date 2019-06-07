@@ -35,7 +35,7 @@ module.exports = {
                 return handleError(h, 'Dados insuficientes', 400);
             
             let user = userServices.findByEmail(email);
-
+            console.log(user);
             if(user == null || user.senha != senha)
                 return handleError(h, 'Usuario e/ou senha inválidos', 401);
             

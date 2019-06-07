@@ -15,7 +15,6 @@ const start = async function(){
     try {
         await server.start();
         console.log('Servidor rodando em: ',server.info.uri);
-        console.log(server.port);
     } catch (error) {
         console.log(error);
         process.exit(1);
