@@ -3,28 +3,28 @@ const FileSync = require('lowdb/adapters/FileSync');
 const adapter = new FileSync('db.json');
 const db = low(adapter);
 const uuid = require('uuid');
+const moment = require('moment');
 
 db.defaults({ user: [] }).write();
 
-let dataAtual = () => {  
-    let calendar = new Date();
-    return `${calendar.getDate()}/${calendar.getMonth()}/${calendar.getFullYear()}`+ 
-    ` ${calendar.getHours()}:${calendar.getMinutes()}:${calendar.getSeconds()}`
-}
-
 module.exports = {
     create: (obj,body) => {
-        body.id = uuid();
-        body.data_criacao = dataAtual();
-        db
-        .get(obj)
-        .push(body)
-        .write();
+        let defaults = {
+            id: uuid(),
+            data_criacao: moment().format(),
+            data_atualizacao: moment().format()
+        };
+
+        let entity = Object.assign(body, defaults);
+
+        db.get(obj).push(entity).write();
+        entity.senha = undefined;
+        return entity;
     },
-    findByEmail: (obj,body) => {
-        db
-        .get(obj)
-        .find({ email: body })
-        .value();
+    find: (obj, criteria) => {
+        return db.get(obj).find(criteria).value();
+    },
+    update: (obj, criteria, data) => {
+        return db.get(obj).find(criteria).assign(data).value();
     }
-}
+};

@@ -3,16 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
+    "hapi": "^18.1.0",
     "lowdb": "^1.0.0",
-    "uuid": "^3.3.2",
-    "hapi": "^18.1.0"
+    "moment": "^2.24.0",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "jshint": "^2.10.2"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
