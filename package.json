@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "dependencies": {
+    "crypto": "^1.0.1",
     "hapi": "^18.1.0",
     "lowdb": "^1.0.0",
     "moment": "^2.24.0",

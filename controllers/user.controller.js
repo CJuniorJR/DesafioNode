@@ -1,5 +1,6 @@
 const userServices = require('../services/user.services');
 const moment = require('moment');
+const utils = require('../utils/utils');
 
 module.exports = {
     create: async (req, h) => {
@@ -35,8 +36,7 @@ module.exports = {
                 return handleError(h, 'Dados insuficientes', 400);
             
             let user = userServices.findByEmail(email);
-            console.log(user);
-            if(user == null || user.senha != senha)
+            if(user == null || !utils.compare(senha, user.senha))
                 return handleError(h, 'Usuario e/ou senha inválidos', 401);
             
             user = userServices.signinUpdate(user.id);
@@ -54,7 +54,7 @@ module.exports = {
 
             let auth = req.headers.authorization;
             if(auth == null)
-                return handleError(h, 'Não autorizado', 401);
+                return handleError(h, 'Não autorizado 778', 401);
 
             let user = userServices.get(req.params.id);
             if(user == null)
@@ -63,10 +63,10 @@ module.exports = {
             let authTokens = auth.split(" ");
 
             if(authTokens[0].toLowerCase() != "bearer" || authTokens[1] == null)
-                return handleError(h, 'Não autorizado 2', 401);
+                return handleError(h, 'Não autorizado', 401);
 
             if(user.token != authTokens[1])
-                return handleError(h, 'Não autorizado 3', 401);
+                return handleError(h, 'Não autorizado', 401);
 
             let lastLogin = moment(user.ultimo_login);
             let now = moment();
