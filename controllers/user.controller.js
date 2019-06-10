@@ -18,9 +18,8 @@ module.exports = {
 
            
             let created = userServices.create(req.payload);
-            created.senha = undefined;
             if(created != null)
-                return h.response(created).code(201);
+                return h.response(lodash.omit(created, 'senha')).code(201);
 
             return handleError(h, 'Não foi possível cadastrar o usuario', 500);
             
@@ -42,7 +41,7 @@ module.exports = {
             
             user = userServices.signinUpdate(user.id);
 
-            return h.response(lodash.omit(user,'senha')).code(200);
+            return h.response(lodash.omit(user, 'senha')).code(200);
 
         } catch (error) {
             console.log(error);
