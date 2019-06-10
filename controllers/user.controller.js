@@ -41,8 +41,8 @@ module.exports = {
                 return handleError(h, 'Usuario e/ou senha inválidos', 401);
             
             user = userServices.signinUpdate(user.id);
-            lodash.omit(user, 'senha');
-            return h.response(user).code(200);
+
+            return h.response(lodash.omit(user,'senha')).code(200);
 
         } catch (error) {
             console.log(error);
@@ -76,8 +76,8 @@ module.exports = {
             if(moment().diff(moment(lastLogin), 'minutes') > 30)
                 return handleError(h, 'Sessão Invalida', 401);
             
-            lodash.omit(user, 'senha');
-            return user;
+            
+            return lodash.omit(user, 'senha');
 
         } catch (error) {
             console.log(error);

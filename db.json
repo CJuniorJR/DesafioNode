@@ -1,0 +1,24 @@
+{
+  "user": [
+    {
+      "nome": "Claudio Junior",
+      "email": "claudiodsesjunior132@gmail.com",
+      "senha": "e95715e1ad507037b16e3ea7765e75cc",
+      "telefones": [
+        {
+          "numero": "11984156268",
+          "DDD": "11"
+        },
+        {
+          "numero": "11963996238",
+          "DDD": "13"
+        }
+      ],
+      "ultimo_login": "2019-06-09T23:07:40-03:00",
+      "token": "09b59dc2-a50e-43c0-b2fe-04acb4d1724d",
+      "id": "5cdaf2bd-8c12-479e-b3ec-62df301a2130",
+      "data_criacao": "2019-06-09T23:07:40-03:00",
+      "data_atualizacao": "2019-06-09T23:07:40-03:00"
+    }
+  ]
+}

@@ -2,7 +2,7 @@ const hapi = require('hapi');
 const userRoute = require('./routes/user.routes');
 
 const server = hapi.server({
-    host: '0.0.0.0',
+    host: 'localhost',
     port: process.env.PORT || 8000,
     routes: {
         cors: true
