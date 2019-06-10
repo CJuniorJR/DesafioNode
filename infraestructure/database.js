@@ -4,7 +4,7 @@ const adapter = new FileSync('db.json');
 const db = low(adapter);
 const uuid = require('uuid');
 const moment = require('moment');
-const _ = require('lodash');
+const lodash = require('lodash');
 
 db.defaults({ user: [] }).write();
 
@@ -20,22 +20,14 @@ module.exports = {
 
         db.get(obj).push(entity).write();
         
-        (_.omit(entity, 'senha'));
-
+        lodash.omit(entity, 'senha');
+        
         return entity;
     },
     find: (obj, criteria) => {
-        let entity = db.get(obj).find(criteria).value();
-
-        _.omit(entity, 'senha');
-
-        return entity;
+        return db.get(obj).find(criteria).value();
     },
     update: (obj, criteria, data) => {
-        let entity = db.get(obj).find(criteria).assign(data).value();
-
-        _.omit(entity, 'senha');
-
-        return entity;
+        return db.get(obj).find(criteria).assign(data).value();
     }
 };

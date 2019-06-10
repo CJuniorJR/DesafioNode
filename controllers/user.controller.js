@@ -1,6 +1,7 @@
 const userServices = require('../services/user.services');
 const moment = require('moment');
 const utils = require('../utils/utils');
+const lodash = require('lodash');
 
 module.exports = {
     create: async (req, h) => {
@@ -40,6 +41,7 @@ module.exports = {
                 return handleError(h, 'Usuario e/ou senha inválidos', 401);
             
             user = userServices.signinUpdate(user.id);
+            lodash.omit(user, 'senha');
             return h.response(user).code(200);
 
         } catch (error) {
@@ -74,6 +76,7 @@ module.exports = {
             if(moment().diff(moment(lastLogin), 'minutes') > 30)
                 return handleError(h, 'Sessão Invalida', 401);
             
+            lodash.omit(user, 'senha');
             return user;
 
         } catch (error) {
