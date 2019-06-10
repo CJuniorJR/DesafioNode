@@ -17,7 +17,7 @@ module.exports = {
 
            
             let created = userServices.create(req.payload);
-
+            created.senha = undefined;
             if(created != null)
                 return h.response(created).code(201);
 
@@ -54,7 +54,7 @@ module.exports = {
 
             let auth = req.headers.authorization;
             if(auth == null)
-                return handleError(h, 'Não autorizado 778', 401);
+                return handleError(h, 'Não autorizado', 401);
 
             let user = userServices.get(req.params.id);
             if(user == null)
