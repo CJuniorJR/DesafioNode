@@ -9,7 +9,7 @@
   "dependencies": {
     "crypto": "^1.0.1",
     "hapi": "^18.1.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "lowdb": "^1.0.0",
     "moment": "^2.24.0",
     "uuid": "^3.3.2"
